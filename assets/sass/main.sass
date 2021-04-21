@@ -56,14 +56,18 @@ body
     border-radius: 100%
 
 .main-page
-    height: 1200px
+    overflow: hidden
+    position: relative
     width: 100vw
     display: flex
     align-items: center
     justify-content: center
+    padding-bottom: 200px
 .container
-    height: 85%
-    width: 85%
+    margin-top: 5%
+    z-index: 1
+    height: 77%
+    width: 88%
     // overflow: hidden
     position: relative
     box-shadow: 10px 10px 80px rgba(0, 0, 0, 0.5)
@@ -102,12 +106,14 @@ body
         -webkit-text-stroke: 1px white
 
 .header
+    
     background-color: $dark-color
     border-radius: 15px 15px 0 0
     padding: 10px 40px
     height: 50px
     display: flex
     nav
+        z-index: 10
         width: 100%
         display: flex
         justify-content: space-between
@@ -212,6 +218,7 @@ body
         display: flex
         margin-top: 2rem
         video
+            border: 1px solid $dark-color
             max-width: 375px
         .agent-info
             margin-left: 30px
@@ -292,10 +299,12 @@ body
                 &::after
                     width: 0
 .weapons
-    margin-top: 70px
+    margin-top: 80px
 .container-weapon
     display: flex
-    
+    position: relative
+    right: 8%
+    margin-bottom: 40px
     .weapon
         background:linear-gradient(-45deg, transparent 15px, #58a 0)
         z-index: 2
@@ -311,6 +320,15 @@ body
         img
             z-index: 3
             max-height: 90px
+            margin-right: 10px
+        p
+            display: flex
+            font-family: Druk Medium
+            font-weight: 500;
+            font-size: 15px;
+            line-height: 31px;
+            
+            color: #F8F8F8;
         .block
             display: flex
             flex-direction: column
@@ -318,3 +336,58 @@ body
             align-items: center
             background-color: $red-color
             width: 25%
+        .weapon-tittle
+        h1
+            font-family: Druk ;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 28px;
+            line-height: 63px;
+
+            color: #C4C4C4;
+        h2
+            font-family: Druk Medium;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 31px;
+
+            color: #1F2326;
+            margin-bottom: 10px
+.white-block
+    position: absolute
+    bottom: 0
+    width: 100%
+    border-radius: 0 0 15px 15px    
+    background-color: #fff
+    height: 85px
+    z-index: -2
+
+.circleFooter-white
+    margin-top: 5%
+    position: absolute
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0
+    background-color: #EFEFEF;
+    left: 10%
+    bottom: 0
+    width: calc(140 * 2px);
+    height: 140px;
+.circleFooter-gray
+    position: absolute
+    border-radius: 100%
+    height: 40px
+    margin-top: 2%
+    left: 5%
+    bottom: 8%
+    width: 40px
+    background-color: #505155;
+.circleFooter-bigGray
+    overflow: hidden
+    background: #292C31;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0
+    position: absolute
+    width: calc(543 * 2px);
+    right: -20%
+    top: 100%
+    transform: translateY(-100%)
+    height: 543px;
