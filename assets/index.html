@@ -23,7 +23,7 @@
     <div class="circle-white"></div>
     <div class="circle-gray"></div>
     <div id="wrapper" class="main-page">
-      <div class="container">
+      <div id="app" class="container">
         <div class="text-jett">
           <span>JETT</span>
         </div>
@@ -65,20 +65,11 @@
           <div class="ability-block">
             <span>Lore and Storyline</span>
             <p>
-              In Valorant lore, Jett is an agile agent expert in the art of
-              evasion. She overwhelms enemies and wounds them with a blade
-              without them knowing her position. <br /><br />
-              Of Korean origin, Jett is an agile fighter who gives priority to
-              movement. Her abilities focus on stealth with jumps that allow her
-              to reach high ledges, teleportation, and smoke bombs. Her ultimate
-              ability gives her kunaïs that inflict moderate to heavy damage,
-              remaining very accurate even when she moves. <br /><br />
-              There are a total of six groups of weapons that players will be
-              able to purchase at the start of each round with each costing a
-              different amount based on their power and weapon type. None of the
-              weapons are tied exclusively to a specific character, so players
-              will be able to use any of the weapons available in the FPS, no
-              matter the character they are using for a particular match.
+              {{agents[0].storyline[1]}} <br />
+              <br />
+              {{agents[0].storyline[2]}} <br />
+              <br />
+              {{agents[0].storyline[3]}}
             </p>
             <div
               class="agent-inforamtions animate__animated animate__slideInLeft"
@@ -88,89 +79,27 @@
               </video>
               <div class="agent-info">
                 <h1>Agents Information</h1>
-                <p><span>Name: </span> Jett</p>
-                <p><span>Country: </span> South Korea</p>
-                <p><span>Signature Ability: </span> Tailwind</p>
-                <p><span>Abilities: </span> Cloudburst, Updraft</p>
-                <p><span>Ultimate: </span> Blade Storm</p>
+                <p><span>Name: </span> {{agents[0].name}}</p>
+                <p><span>Country: </span> {{agents[0].country}}</p>
+                <p><span>Signature Ability: </span> {{agents[0].country}}</p>
+                <p>
+                  <span>Abilities: </span> {{agents[0].signature_abilities}}
+                </p>
+                <p><span>Ultimate: </span> {{agents[0].ultimate}}</p>
+              </div>
+              <div class="agent_switch">
+                <button>Jett</button>
+                <button>Reyna</button>
               </div>
             </div>
             <div class="abilities">
-              <div class="ability">
-                <svg
-                  viewBox="0 0 65 80"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M33.9074 0C33.9074 3.38782 33.9473 5.99129 32.2792 9.10622L32.5 9.10378C50.4492 9.10378 65 23.504 65 41.2678C65 51.9198 59.7677 61.3624 51.7079 67.2158C49.0723 69.7253 43.0322 73.9873 33.5864 80C34.1799 77.466 33.8619 75.2758 32.632 73.4289L32.5 73.4318C14.5508 73.4318 0 59.0313 0 41.2678C0 28.822 7.1426 18.0276 17.5924 12.6796C26.0686 6.87471 31.5062 2.64804 33.9074 0ZM32.5 22.9742C22.2432 22.9742 13.9286 31.2029 13.9286 41.3536C13.9286 43.2656 14.2236 45.1091 14.7709 46.8424C20.3307 50.7587 31.1375 48.4316 32.1887 36.7589C34.6376 46.136 32.9279 55.5213 21.1324 55.8882C24.2726 58.2982 28.2169 59.7331 32.5 59.7331C42.7568 59.7331 51.0714 51.5042 51.0714 41.3536C51.0714 31.2029 42.7568 22.9742 32.5 22.9742Z"
-                    fill="white"
-                  />
-                </svg>
-                <h1>Cloudburst :</h1>
-                <p>
-                  Deploys a cloud of smoke that obstructs the enemy's vision.
-                  Press the skill button a second time to lift the cloud.
-                </p>
-              </div>
-              <div class="ability">
-                <svg
-                  viewBox="0 0 60 80"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M31.4416 58.0251L40.6724 65.4269C41.2198 65.866 41.5384 66.5305 41.5384 67.2331V80L30 70.7476L18.4616 80V67.2331C18.4616 66.5305 18.7802 65.866 19.3276 65.4269L28.5584 58.0251C29.4011 57.3493 30.5989 57.3493 31.4416 58.0251ZM31.5438 30.5047L52.3129 49.2407C52.7993 49.6793 53.0769 50.3042 53.0769 50.96V63.8084L31.5438 44.3831C30.6662 43.5916 29.3338 43.5916 28.4562 44.3831L6.92311 63.8084V50.96C6.92311 50.3042 7.20067 49.6793 7.68711 49.2407L28.4562 30.5047C29.3338 29.7129 30.6662 29.7129 31.5438 30.5047ZM31.6318 0.677483L58.6482 27.7571C59.5138 28.6247 60 29.8013 60 31.0282V47.6167L50.7693 40.6776V34.6964C50.7693 34.0829 50.526 33.4944 50.0933 33.0607L31.6318 14.556C30.7307 13.6527 29.2693 13.6527 28.3682 14.556L9.90667 33.0607C9.474 33.4944 9.23067 34.0829 9.23067 34.6964V40.6776L0 47.6167V31.0282C0 29.8013 0.486223 28.6247 1.35178 27.7571L28.3682 0.677483C29.2693 -0.225828 30.7307 -0.225828 31.6318 0.677483Z"
-                    fill="white"
-                  />
-                </svg>
-
-                <h1>Updraft :</h1>
-                <p>Propels you through the air.</p>
-              </div>
-              <div class="ability">
-                <svg
-                  viewBox="0 0 80 80"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M48.6471 16C47.1029 22.0953 43.2419 25.1429 37.0645 25.1429H0C1.54434 20.5714 3.86089 18.2857 6.94949 18.2857H34.7479C31.6592 15.2382 28.5705 13.7143 25.4819 13.7143H13.8992C15.3733 10.8053 18.2546 9.28457 22.5431 9.15223L24.0517 9.13029C30.6896 8.94011 36.966 6.56526 34.7479 0H46.3306L79.2641 30.3289C80.1994 31.1904 80.2499 32.6368 79.377 33.5595C79.3406 33.5979 79.3032 33.6352 79.2641 33.6711L46.3306 64H34.7479C37.0645 57.1429 30.115 54.8571 23.1653 54.8571C18.7429 54.8571 15.7276 53.4688 14.1193 50.6919L13.8992 50.2857H25.4819C28.3888 50.2857 31.2958 48.936 34.203 46.2363L34.7479 45.7143H6.94949C3.99518 45.7143 1.74725 43.6231 0.205806 39.4405L0 38.8571H37.0645C43.0359 38.8571 46.8428 41.7049 48.4851 47.4007L48.6471 48L64.8629 32L48.6471 16Z"
-                    fill="white"
-                  />
-                </svg>
-
-                <h1>Tailwind :</h1>
-                <p>Dashes a short distance in the direction you want to go.</p>
-              </div>
-              <div class="ability">
-                <svg
-                  viewBox="0 0 72 80"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M36 0L36.3341 0.802303C39.7546 9.23903 42.1075 21.9673 43.3923 38.9869L43.5096 40.5952L38.1521 47.3634V50.2589C39.4709 50.2589 43.5096 53.0657 43.5096 57.3913C43.5096 61.5287 40.8449 63.585 39.876 63.7559L39.7548 63.7675V78.1013C39.7548 79.1964 38.6645 79.8208 36.4839 79.9743L36 80C33.4968 79.9076 32.2452 79.2747 32.2452 78.1013V63.7675C31.403 63.7675 28.4904 61.7169 28.4904 57.3913C28.4904 53.0657 32.5291 50.2589 33.8479 50.2589V47.3634L28.4904 40.5952C29.7859 22.2099 32.2891 8.67806 36 0ZM0.0290197 12.3665L0.573891 12.8979C5.6748 17.9789 11.2123 26.4766 17.1864 38.3908L17.8282 39.6802L15.689 46.295L16.5446 48.4102C17.5634 47.999 21.5136 48.7901 22.7918 51.9501C24.0703 55.1098 22.4258 57.5161 21.7752 57.7787C24.745 65.1198 26.4031 69.2189 26.7499 70.0761C27.072 70.8718 26.4223 71.6638 24.8011 72.4519L24.4099 72.6335C22.4484 73.3464 21.2942 73.2744 20.9474 72.4172L15.9727 60.12C15.3221 60.3825 12.4656 59.7925 11.1871 56.6327C9.90889 53.4727 12.2002 50.1634 13.219 49.7522L12.3631 47.6368L6.22344 44.3629C1.7912 30.5285 -0.273644 19.863 0.0290197 12.3665ZM71.971 12.3665C72.2736 19.863 70.2089 30.5285 65.7766 44.3629L59.6369 47.6368L58.7811 49.7522C59.7999 50.1634 62.0911 53.4727 60.8129 56.6327C59.5344 59.7925 56.6779 60.3825 56.0273 60.12L51.0526 72.4172C50.7058 73.2744 49.5516 73.3464 47.5901 72.6335L47.1989 72.4519C45.5777 71.6638 44.9283 70.8718 45.2501 70.0761C45.5969 69.2189 47.2551 65.1198 50.2248 57.7787C49.5742 57.5161 47.9297 55.1098 49.2082 51.9501C50.4864 48.7901 54.4366 47.999 55.4554 48.4102L56.311 46.295L54.1719 39.6802L54.8136 38.3908C60.7877 26.4766 66.3252 17.9789 71.4262 12.8979L71.971 12.3665ZM36 53.7501C33.9262 53.7501 32.2452 55.4291 32.2452 57.5001C32.2452 59.5712 33.9262 61.2502 36 61.2502C38.0739 61.2502 39.7548 59.5712 39.7548 57.5001C39.7548 55.4291 38.0739 53.7501 36 53.7501ZM15.9134 51.6315C14.3112 52.2781 13.5084 54.0286 14.1206 55.5416C14.7326 57.0545 16.5276 57.7569 18.1298 57.1103C19.7323 56.4638 20.5349 54.7132 19.9229 53.2002C19.3109 51.6873 17.5157 50.985 15.9134 51.6315ZM56.0866 51.6315C54.4843 50.985 52.6891 51.6873 52.0771 53.2002C51.4651 54.7132 52.2677 56.4638 53.8702 57.1103C55.4724 57.7569 57.2674 57.0545 57.8794 55.5416C58.4916 54.0286 57.6888 52.2781 56.0866 51.6315Z"
-                    fill="white"
-                  />
-                </svg>
-
-                <h1>Blade storm :</h1>
-                <p>
-                  Automatically equips the agent with various throwing knives
-                  that one shot if you hit the head. Performing a kill restores
-                  all the knives.
-                </p>
+              <div v-for="ability in agents[0].abilities" class="ability">
+                <img :src="ability.imgpath" alt="Ability" />
+                <h1>{{ability.name}}</h1>
+                <p>{{ability.description}}</p>
               </div>
             </div>
+
           </div>
         </div>
         <div class="weapons wow animate__animated wow animate__slideInLeft">
@@ -214,11 +143,10 @@
       <div class="circleFooter-bigGray"></div>
     </div>
 
-
-    
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
     <script src="js/wow.js"></script>
     <script src="js/main.js"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="js/vuemain.js"></script>
   </body>
 </html>
