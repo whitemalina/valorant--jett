@@ -17,7 +17,13 @@ body
     background-color: $dark-color
     font-family: Montserrat
     max-width: 100vw
-    
+.fade-enter-active, .fade-leave-active 
+    transition: .4s;
+
+.fade-enter, .fade-leave-to 
+    opacity: 0;
+
+
     
 .circle-red
     position: absolute
@@ -88,15 +94,17 @@ body
     height: 1150px
     width: 1000px
    
-    background-image: url("../img/Jett.png")
+    //background-image: url("../img/Jett.png")
     background-size: cover
     background-repeat: no-repeat
     img
         max-height: 1000px
 .text-jett
+    z-index: -1
     position: absolute
     color: transparent
-    transform: rotate(90deg) translateX(45%) translateY(-70%)
+    text-transform: uppercase
+    transform: rotate(90deg) translateX(38%) translateY(-70%)
     right: 0
     span
         font-family: Druk
@@ -223,9 +231,12 @@ body
         display: flex
         margin-top: 2rem
         video
+            
             border: 1px solid $dark-color
             max-width: 375px
+            min-height: 300px
         .agent-info
+            width: 250px
             margin-left: 30px
         h1
             font-family: Druk
@@ -267,8 +278,9 @@ body
                     transition: all .2s
                     fill: #FF4656
             img
+                max-width: 60px
+                margin: 0 auto
                 margin-top: 20px
-                max-height: 50px
 
             h1
                 margin-top: 20px
@@ -396,8 +408,22 @@ body
     top: 100%
     transform: translateY(-100%)
     height: 543px;
-
-
+.agent_switch
+    display: flex
+    flex-direction: column
+    margin-left: 5%
+.agent_switch-btn
+    border: none
+    font-family: Druk
+    width: 60px
+    font-size: 10px
+    height: 30px
+    border-radius: 5px
+    margin-top: 20px
+    background-color: $red-color
+    color: white;
+.weapon-tittle
+    width: 194px
 @media (max-width: 1800px)
     .jett
         z-index: -1
@@ -440,16 +466,85 @@ body
         flex-wrap: wrap
         .ability
             max-width: 50%
+    .circleFooter-bigGray
+        width: 0
 @media screen and ( max-width: 1165px )
     .container-weapon
 @media screen and ( max-width: 1185px  )
+
     .ul
         margin-left: 2px !important
         margin-right: 2px !important
         width: 100% !important
+    .container-weapon
+        display: flex !important
+        flex-direction: column !important
+        justify-content: center !important
+        align-items: center !important
+        position: static
+        width: 100%
+        right: 0
+        // padding: 70px 120px 0 120px;
+    .weapon
+        width: 70% !important
+        margin-top: 2%
+        
+
 @media screen and ( max-width: 997px )
     .ul
         display: none !important
-    
+    .circle-red
+        display: none
+    .ability-block
+        max-width: 80% !important;
+    .jett
+        background-image: url("") !important
+@media screen and ( max-width: 768px )
+    .ability-block
+        max-width: 100% !important
+        margin-right: 0
+    .main-content
+        padding: 30px 80px 0px;
+    .text-jett
+        display: none
+
+@media screen and ( max-width: 691px )
+    .main-content
+        padding: 30px 50px 0px;
+    .weapon
+        .block
+            img
+                max-height: 70px
+        .weapon-tittle
+            h1
+                font-size: 20px
+            h2
+                font-size: 8px
+    .agent-info
+        width: 50% !important
+@media screen and ( max-width: 450px )
+    .main-content
+        padding: 0px 0px 0px;
+    .ability
+        &::after
+            width: 0 !important
+    .weapon
+        height: 120px !important
+        .block
+            width: 70px !important
+            img
+                max-height: 50px
+        .weapon-tittle
+            h1
+                margin-left: 10px
+                font-size: 16px
+            h2
+                margin-left: 10px
+                font-size: 7px
+@media screen and ( max-width: 381px )
+    .logo-valorant
+        display: none
+
+
     
     

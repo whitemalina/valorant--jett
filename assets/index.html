@@ -25,9 +25,12 @@
     <div id="wrapper" class="main-page">
       <div id="app" class="container">
         <div class="text-jett">
-          <span>JETT</span>
+          <span>{{agents_now.name}}</span>
         </div>
-        <div class="jett animate__animated animate__slideInRight">
+        <div
+          :style="{ 'background-image': 'url(' + agents_now.img_path + ')' }"
+          class="jett animate__animated animate__slideInRight"
+        >
           <!-- <img src="img/Jett.png" alt=""> -->
         </div>
         <div class="header">
@@ -65,79 +68,71 @@
           <div class="ability-block">
             <span>Lore and Storyline</span>
             <p>
-              {{agents[0].storyline[1]}} <br />
+              {{agents_now.storyline[1]}} <br />
               <br />
-              {{agents[0].storyline[2]}} <br />
+              {{agents_now.storyline[2]}} <br />
               <br />
-              {{agents[0].storyline[3]}}
+              {{agents_now.storyline[3]}}
             </p>
             <div
               class="agent-inforamtions animate__animated animate__slideInLeft"
             >
-              <video autoplay="true" loop="true" muted="muted">
-                <source src="img/Valorant.mp4" type="video/mp4" />
-              </video>
+              <video
+                v-if="video_status"
+                autoplay="true"
+                :src="agents_now.video_path"
+                loop="true"
+                muted="muted"
+              ></video>
               <div class="agent-info">
                 <h1>Agents Information</h1>
-                <p><span>Name: </span> {{agents[0].name}}</p>
-                <p><span>Country: </span> {{agents[0].country}}</p>
-                <p><span>Signature Ability: </span> {{agents[0].country}}</p>
+                <p><span>Name: </span> {{agents_now.name}}</p>
+                <p><span>Country: </span> {{agents_now.country}}</p>
+                <p><span>Signature Ability: </span> {{agents_now.country}}</p>
                 <p>
-                  <span>Abilities: </span> {{agents[0].signature_abilities}}
+                  <span>Abilities: </span> {{agents_now.signature_abilities}}
                 </p>
-                <p><span>Ultimate: </span> {{agents[0].ultimate}}</p>
+                <p><span>Ultimate: </span> {{agents_now.ultimate}}</p>
               </div>
               <div class="agent_switch">
-                <button>Jett</button>
-                <button>Reyna</button>
+                <button class="agent_switch-btn" @click="agentswitch(0)">
+                  JETT
+                </button>
+                <button class="agent_switch-btn" @click="agentswitch(1)">
+                  SAGE
+                </button>
+                <button class="agent_switch-btn" @click="agentswitch(2)">
+                  SOVA
+                </button>
               </div>
             </div>
             <div class="abilities">
-              <div v-for="ability in agents[0].abilities" class="ability">
+              <div v-for="ability in agents_now.abilities" class="ability">
                 <img :src="ability.imgpath" alt="Ability" />
                 <h1>{{ability.name}}</h1>
                 <p>{{ability.description}}</p>
               </div>
             </div>
-
           </div>
         </div>
+
         <div class="weapons wow animate__animated wow animate__slideInLeft">
           <div class="container-weapon">
-            <div class="weapon">
+            <div v-for="weapon in weapons" class="weapon">
               <div class="weapon-tittle">
-                <h1>RIFLES</h1>
-                <h2>GUARDIAN</h2>
+                <h1>{{weapon.type}}</h1>
+                <h2>{{weapon.name}}</h2>
               </div>
               <div class="block">
-                <img src="img/weapons/weapon_1.png" alt="" />
-                <p><img src="img/coins.svg" alt="" />2,700</p>
-              </div>
-            </div>
-            <div class="weapon">
-              <div class="weapon-tittle">
-                <h1>SMGS</h1>
-                <h2>SPECTRE</h2>
-              </div>
-              <div class="block">
-                <img src="img/weapons/weapon_2.png" alt="" />
-                <p><img src="img/coins.svg" alt="" />1,600</p>
-              </div>
-            </div>
-            <div class="weapon">
-              <div class="weapon-tittle">
-                <h1>SIDEARM</h1>
-                <h2>SHERIFF</h2>
-              </div>
-              <div class="block">
-                <img src="img/weapons/weapon_3.png" alt="" />
-                <p><img src="img/coins.svg" alt="" />900</p>
+                <img :src="weapon.img_path" alt="" />
+                <p><img src="img/coins.svg" alt="" />{{weapon.price}}</p>
               </div>
             </div>
           </div>
         </div>
         <div class="white-block"></div>
       </div>
+
       <div class="circleFooter-white"></div>
       <div class="circleFooter-gray"></div>
       <div class="circleFooter-bigGray"></div>
