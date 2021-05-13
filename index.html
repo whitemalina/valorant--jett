@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.min.css" />
+
+    <title>Valorant - Agent Jett</title>
+  </head>
+  <body>
+    <div class="circle-red"></div>
+    <div class="circle-red--secondary"></div>
+    <div class="circle-white"></div>
+    <div class="circle-gray"></div>
+    <div id="wrapper" class="main-page">
+      <div id="app" class="container">
+        <div class="text-jett">
+          <span>{{agents_now.name}}</span>
+        </div>
+        <div
+          :style="{ 'background-image': 'url(' + agents_now.img_path + ')' }"
+          class="jett animate__animated animate__slideInRight"
+        >
+          <!-- <img src="img/Jett.png" alt=""> -->
+        </div>
+        <div class="header">
+          <nav>
+            <div class="logo-and-nav">
+              <div class="logo">
+                <img
+                  src="img/riot games.svg"
+                  alt="RIOT GAMES"
+                  class="logo-riot"
+                />
+                <div class="divider"></div>
+                <img class="logo-valorant" src="img/logo.svg" alt="VALORANT" />
+              </div>
+              <div class="ul">
+                <li><a href="">GAME</a></li>
+                <li><a href="">CHAMPIONS</a></li>
+                <li><a class="info" href="">NEWS</a></li>
+                <li><a href="">PATCH NOTES</a></li>
+                <li><a class="info" href="">DISCOVER</a></li>
+                <li><a href="">ESPORTS</a></li>
+                <li><a href="">UNIVERSE</a></li>
+                <li><a href="">SHOP</a></li>
+                <li><a href="">SUPPORT</a></li>
+              </div>
+            </div>
+
+            <div class="user">
+              <img src="img/icon.png" alt="UNEPICKID" class="user-logo" />
+              <a class="info" href="">WhiteMalina</a>
+            </div>
+          </nav>
+        </div>
+        <div class="main-content wow">
+          <div class="ability-block">
+            <span>Lore and Storyline</span>
+            <p>
+              {{agents_now.storyline[1]}} <br />
+              <br />
+              {{agents_now.storyline[2]}} <br />
+              <br />
+              {{agents_now.storyline[3]}}
+            </p>
+            <div
+              class="agent-inforamtions animate__animated animate__slideInLeft"
+            >
+              <video
+                v-if="video_status"
+                autoplay="true"
+                :src="agents_now.video_path"
+                loop="true"
+                muted="muted"
+              ></video>
+              <div class="agent-info">
+                <h1>Agents Information</h1>
+                <p><span>Name: </span> {{agents_now.name}}</p>
+                <p><span>Country: </span> {{agents_now.country}}</p>
+                <p><span>Signature Ability: </span> {{agents_now.country}}</p>
+                <p>
+                  <span>Abilities: </span> {{agents_now.signature_abilities}}
+                </p>
+                <p><span>Ultimate: </span> {{agents_now.ultimate}}</p>
+              </div>
+              <div class="agent_switch">
+                <button class="agent_switch-btn" @click="agentswitch(0)">
+                  JETT
+                </button>
+                <button class="agent_switch-btn" @click="agentswitch(1)">
+                  SAGE
+                </button>
+                <button class="agent_switch-btn" @click="agentswitch(2)">
+                  SOVA
+                </button>
+              </div>
+            </div>
+            <div class="abilities">
+              <div v-for="ability in agents_now.abilities" class="ability">
+                <img :src="ability.imgpath" alt="Ability" />
+                <h1>{{ability.name}}</h1>
+                <p>{{ability.description}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="weapons wow animate__animated wow animate__slideInLeft">
+          <div class="container-weapon">
+            <div v-for="weapon in weapons" class="weapon">
+              <div class="weapon-tittle">
+                <h1>{{weapon.type}}</h1>
+                <h2>{{weapon.name}}</h2>
+              </div>
+              <div class="block">
+                <img :src="weapon.img_path" alt="" />
+                <p><img src="img/coins.svg" alt="" />{{weapon.price}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="white-block"></div>
+      </div>
+
+      <div class="circleFooter-white"></div>
+      <div class="circleFooter-gray"></div>
+      <div class="circleFooter-bigGray"></div>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    <script src="js/wow.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="js/vuemain.js"></script>
+  </body>
+</html>
