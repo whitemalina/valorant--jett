@@ -38,7 +38,7 @@ var app = new Vue({
         
         signature_abilities: "Cloudburst",
         ultimate: "Blade Storm",
-        img_path: "../img/jett.png",
+        img_path: "img/jett.png",
         video_path: "img/Jett.mp4",
         abilities: [
           {
@@ -77,7 +77,7 @@ var app = new Vue({
         ability: "Barrier Orb, Slow Orb",
         signature_abilities: "Healing Orb",
         ultimate: "Resurrection",
-        img_path: "../img/sage.png",
+        img_path: "img/sage.png",
         video_path: "img/sage.mp4",
         abilities: [
           {
@@ -114,7 +114,7 @@ var app = new Vue({
         ability: "Owl Drone, Shock Bolt",
         signature_abilities: "Recon Bolt",
         ultimate: "Hunter's Fury",
-        img_path: "../img/sova.png",
+        img_path: "img/sova.png",
         video_path: "img/Sova.mp4",
         abilities: [
           {
