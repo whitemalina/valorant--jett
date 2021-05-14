@@ -45,7 +45,7 @@ var app = new Vue({
             name: "CLOUDBURST",
             description:
               "Deploys a cloud of smoke that obstructs the enemy's vision. Press the skill button a second time to lift the cloud.",
-            imgpath: "/img/Ability/Cloudburst.png",
+            imgpath: "img/Ability/Cloudburst.png",
           },
           {
             name: "UPDRAFT",
