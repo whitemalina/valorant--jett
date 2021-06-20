@@ -8,6 +8,7 @@ $red-color: #FF4656
     src: url("../fonts/Druk Wide Medium.otf") format("opentype")
 
 *
+    outline: none
     margin: 0
     padding: 0
 *
@@ -17,12 +18,8 @@ body
     background-color: $dark-color
     font-family: Montserrat
     max-width: 100vw
-.fade-enter-active, .fade-leave-active 
-    transition: .4s;
-
-.fade-enter, .fade-leave-to 
-    opacity: 0;
-
+html
+    overflow-x: hidden
 
     
 .circle-red
@@ -272,7 +269,7 @@ body
             width: 300px
             height: 180px
             z-index: 2
-            transition: all 2ss ease-in-out
+            transition: all 2s ease-in-out
             &:hover
                 path
                     transition: all .2s
@@ -422,6 +419,10 @@ body
     margin-top: 20px
     background-color: $red-color
     color: white;
+.agent_switch-btn-active
+    border: 2px solid $dark-color !important
+    transition: none
+    
 .weapon-tittle
     width: 194px
 @media (max-width: 1800px)
@@ -544,6 +545,34 @@ body
 @media screen and ( max-width: 381px )
     .logo-valorant
         display: none
+.extrap 
+    padding: 10px;
+@keyframes val
+    0% 
+        
+    20%
+        transform: translate(-900px);
+        
+    100% 
+        transform: translate(0px);
+@keyframes valsecond
+    0% 
+        
+    20%
+        right: -1000px
+        
+    100% 
+        right: 0
+@keyframes opacity-set
+    0% 
+
+    20%
+        opacity: 0
+    100% 
+        opacity: 1
+.anim 
+    animation: val 0.5s cubic-bezier(0.98,-0.01, 0, 1.01) forwards 
+    
 
 
     

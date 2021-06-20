@@ -1,6 +1,14 @@
 var app = new Vue({
   el: "#app",
   data: {
+    animation: null,
+    animation: {
+      story: null,
+      info: null,
+      ability: null,
+      name: null,
+    },
+    mas: [],
     agents_now: [],
     video : "img/Valorant.mp4",
     video_status: true,
@@ -144,11 +152,38 @@ var app = new Vue({
   },
   mounted(){
       this.agentswitch(0)
+      this.animation.story = null
+      this.animation.info = null
+      this.animation.abilityin = null
   },
   methods: {
     agentswitch(agent_id) {
-        this.agents_now = this.agents[agent_id] 
-        console.log(this.agents_now)
+      this.mas[0] = null
+      this.mas[1] = null
+      this.mas[2] = null
+        switch(agent_id) {
+          case 0: this.mas[0] = "agent_switch-btn-active" 
+          break
+          case 1: this.mas[1] = "agent_switch-btn-active"
+          break
+          case 2: this.mas[2] = "agent_switch-btn-active"
+          
+        }
+        this.animation.story = "animation: val 0.5s cubic-bezier(0.98,-0.01, 0, 1.01) forwards "
+        this.animation.info = "animation: opacity-set 0.5s cubic-bezier(0.98,-0.01, 0, 1.01) forwards "
+        this.animation.name = "animation: valsecond 0.5s cubic-bezier(0.98,-0.01, 0, 1.01) forwards "
+        this.animation.ability = "animation: opacity-set 0.5s cubic-bezier(0.98,-0.01, 0, 1.01) forwards "
+        setTimeout(() => {
+          this.agents_now = this.agents[agent_id] 
+          console.log(this.agents_now)
+        }, 100);
+        
+        setTimeout(() => {
+          this.animation.story = null
+          this.animation.info = null
+          this.animation.ability = null
+          this.animation.name = null
+        }, 500);
     }
   }
 });

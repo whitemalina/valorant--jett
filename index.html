@@ -24,7 +24,7 @@
     <div class="circle-gray"></div>
     <div id="wrapper" class="main-page">
       <div id="app" class="container">
-        <div class="text-jett">
+        <div :style="animation.name" class="text-jett">
           <span>{{agents_now.name}}</span>
         </div>
         <div
@@ -67,17 +67,21 @@
         <div class="main-content wow">
           <div class="ability-block">
             <span>Lore and Storyline</span>
-            <p>
+            <div class="div" style="overflow: hidden;">
+
+            
+            <p :style="animation.story">
               {{agents_now.storyline[1]}} <br />
               <br />
               {{agents_now.storyline[2]}} <br />
               <br />
               {{agents_now.storyline[3]}}
             </p>
+          </div>
             <div
               class="agent-inforamtions animate__animated animate__slideInLeft"
             >
-              <video
+              <video :style="animation.story"
                 v-if="video_status"
                 autoplay="true"
                 :src="agents_now.video_path"
@@ -86,31 +90,31 @@
               ></video>
               <div class="agent-info">
                 <h1>Agents Information</h1>
-                <p><span>Name: </span> {{agents_now.name}}</p>
-                <p><span>Country: </span> {{agents_now.country}}</p>
-                <p><span>Signature Ability: </span> {{agents_now.country}}</p>
-                <p>
+                <p :style="animation.info"><span>Name: </span> {{agents_now.name}}</p>
+                <p :style="animation.info"><span>Country: </span> {{agents_now.country}}</p>
+                <p :style="animation.info"><span>Signature Ability: </span> {{agents_now.country}}</p>
+                <p :style="animation.info">
                   <span>Abilities: </span> {{agents_now.signature_abilities}}
                 </p>
-                <p><span>Ultimate: </span> {{agents_now.ultimate}}</p>
+                <p :style="animation.info"><span>Ultimate: </span> {{agents_now.ultimate}}</p>
               </div>
               <div class="agent_switch">
-                <button class="agent_switch-btn" @click="agentswitch(0)">
+                <button class="agent_switch-btn" :class="mas[0]" @click="agentswitch(0); ">
                   JETT
                 </button>
-                <button class="agent_switch-btn" @click="agentswitch(1)">
+                <button class="agent_switch-btn" :class="mas[1]"  @click="agentswitch(1); ">
                   SAGE
                 </button>
-                <button class="agent_switch-btn" @click="agentswitch(2)">
+                <button class="agent_switch-btn" :class="mas[2]" @click="agentswitch(2); ">
                   SOVA
                 </button>
               </div>
             </div>
             <div class="abilities">
               <div v-for="ability in agents_now.abilities" class="ability">
-                <img :src="ability.imgpath" alt="Ability" />
-                <h1>{{ability.name}}</h1>
-                <p>{{ability.description}}</p>
+                <img :style="animation.info" :src="ability.imgpath" alt="Ability" />
+                <h1 :style="animation.info" >{{ability.name}}</h1>
+                <p :style="animation.info" >{{ability.description}}</p>
               </div>
             </div>
           </div>
